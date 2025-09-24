@@ -90,8 +90,26 @@
                     "name": "MouseMove",
                     "type": "Value",
                     "id": "f5f55fd9-b43e-4f07-ae6b-04ee675a0e29",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseXAxis",
+                    "type": "Value",
+                    "id": "b92a82f6-5d60-4661-a56b-4c65ac74f91a",
+                    "expectedControlType": "Axis",
+                    "processors": "Clamp(min=-1,max=1)",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseYAxis",
+                    "type": "Value",
+                    "id": "7c9fedfd-d5e4-424f-912d-74bf2a8985f4",
+                    "expectedControlType": "Axis",
+                    "processors": "Clamp(min=-1,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
                 }
@@ -120,68 +138,79 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "LeftRight",
-                    "id": "0e1fd308-1aa4-4b0a-94eb-3eb375abc4e7",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "4c00ac79-b179-4d86-ad6e-1d148b7a3cb7",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MouseMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "ecd6c9a2-24c5-4537-bf24-65dd2431443e",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseXAxis",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "03c25983-e44f-4fc6-b08b-194aa5a49283",
+                    "id": "1daeb11b-a651-4be5-bc91-d2e2d2c07130",
                     "path": "<Mouse>/delta/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMove",
+                    "action": "MouseXAxis",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "c9b26668-d7ac-4099-9159-e979e4bc46c9",
+                    "id": "613fe57f-c988-4a6d-b296-b56cd2cb4fab",
                     "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMove",
+                    "action": "MouseXAxis",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "UpDown",
-                    "id": "29abd5ec-f887-46b7-ae87-659925c23afd",
+                    "name": "1D Axis",
+                    "id": "6f5959d1-2f83-4f94-8878-a3892893609b",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMove",
+                    "action": "MouseYAxis",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "b62c1487-eb70-42fa-ac60-8d9e32f966ba",
+                    "id": "0afa05a0-14ed-42e8-86eb-131c4dbb9ce4",
                     "path": "<Mouse>/delta/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMove",
+                    "action": "MouseYAxis",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "8b568c36-305b-46ee-b594-f1ab2017947f",
+                    "id": "7709321b-f165-436d-8488-fbabf0daaf0d",
                     "path": "<Mouse>/delta/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMove",
+                    "action": "MouseYAxis",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
