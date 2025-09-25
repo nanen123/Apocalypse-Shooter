@@ -100,7 +100,7 @@
                     "type": "Value",
                     "id": "b92a82f6-5d60-4661-a56b-4c65ac74f91a",
                     "expectedControlType": "Axis",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -109,7 +109,7 @@
                     "type": "Value",
                     "id": "7c9fedfd-d5e4-424f-912d-74bf2a8985f4",
                     "expectedControlType": "Axis",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 }
