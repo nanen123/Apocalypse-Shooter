@@ -5,35 +5,38 @@ public class PlayerMove : MonoBehaviour
 {
     private Rigidbody rig;
     [SerializeField] private InputAction moveAction;
+    private Vector3 moveVector;
 
-    [SerializeField] private Vector3 moveVector;
+    [SerializeField] private InputAction moveTriggerAction;
+    private bool moveTrigger;
+
     public float moveSpeed;
 
-    [SerializeField] private Vector3 rotVector; // 움직일 때 회전을 위한 벡터
-    [SerializeField] private float rotSpeed;
-    [SerializeField] private bool isFiring;
-
-    [SerializeField] public Transform cam;
-    public Vector3 temp;
+    public Transform cam;
 
     void Awake()
     {
         rig = GetComponent<Rigidbody>();
         moveAction = InputSystem.actions.FindAction("Move");
+        moveTriggerAction = InputSystem.actions.FindAction("MoveTrigger");
     }
 
     private void Update()
     {
-        moveVector = moveAction.ReadValue<Vector3>();
-        Vector3 dir = (cam.transform.localRotation * Vector3.forward) * moveVector.z + (cam.transform.localRotation * Vector3.right) * moveVector.x;
-        dir.y = 0;
-        dir.Normalize();
-        Debug.Log(dir);
-        rig.linearVelocity = dir * moveSpeed;
+        Move();
+    }
 
-        //rotVector = transform.position + moveVector;
-        //if (moveVector != Vector3.zero)
-        //    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rotVector - transform.position), Time.deltaTime * rotSpeed);
+    private void Move()
+    {
+        if (moveAction.IsPressed())
+        {
+            moveVector = moveAction.ReadValue<Vector3>();
+            Vector3 dir = (cam.transform.localRotation * Vector3.forward) * moveVector.z + (cam.transform.localRotation * Vector3.right) * moveVector.x;
+            dir.y = 0;
+            dir.Normalize();
+            rig.linearVelocity = dir * moveSpeed;
+            transform.LookAt(dir + transform.position);
+        }
     }
 
 }

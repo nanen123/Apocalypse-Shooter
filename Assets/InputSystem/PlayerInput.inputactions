@@ -83,8 +83,8 @@
                     "id": "b0afa334-0b8f-4e17-9cc4-6519e520c8ed",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(behavior=2)",
-                    "initialStateCheck": false
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "MouseMove",
@@ -121,7 +121,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard",
+                    "groups": "",
                     "action": "MouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false

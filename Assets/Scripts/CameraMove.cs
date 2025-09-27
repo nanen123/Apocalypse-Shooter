@@ -10,22 +10,27 @@ public class CameraMove : MonoBehaviour
     private float rotY;
 
     public Transform objectTofollow;
+    public Vector3 cameraOffset;
+
     public float sensitivity;
     public float clampAngle;
 
-    public Transform cam;
+    private Transform cam;
     private Vector3 dirNormalized; // πÊ«‚ ∫§≈Õ
     private Vector3 finalDir;
     public float minDistance;
     public float maxDistance;
     public float finalDistance;
 
+
     void Awake()
     {
         mouseXMoveAction = InputSystem.actions.FindAction("MouseXAxis");
         mouseYMoveAction = InputSystem.actions.FindAction("MouseYAxis");
 
-        rotX = transform.localRotation.eulerAngles.x;
+        cam = Camera.main.transform;
+
+        rotX = transform.localRotation.eulerAngles.x + 15;
         rotY = transform.localRotation.eulerAngles.y;
 
         dirNormalized = cam.localPosition.normalized;
@@ -44,7 +49,7 @@ public class CameraMove : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, objectTofollow.position, 10f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, objectTofollow.position + cameraOffset, 10f * Time.deltaTime);
 
         finalDir = transform.TransformPoint(dirNormalized * maxDistance);
         cam.localPosition = Vector3.Lerp(cam.localPosition, dirNormalized * finalDistance, Time.deltaTime);
