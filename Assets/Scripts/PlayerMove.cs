@@ -26,6 +26,8 @@ public class PlayerMove : MonoBehaviour
     {
         moveVector = moveAction.ReadValue<Vector3>();
         Vector3 dir = (cam.transform.localRotation * Vector3.forward) * moveVector.z + (cam.transform.localRotation * Vector3.right) * moveVector.x;
+        dir.y = 0;
+        dir.Normalize();
         Debug.Log(dir);
         rig.linearVelocity = dir * moveSpeed;
 
