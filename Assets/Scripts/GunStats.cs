@@ -11,5 +11,6 @@ public class GunStats : ScriptableObject
     public int remainAmmo; // 현재 탄창에 남아있는 총알
     public int maxAmmo; // 한 탄창 최대 총알
 
+    public float shotDelay; // 발사 간격
     public float reloadingTime; // 재장전 시간
 }

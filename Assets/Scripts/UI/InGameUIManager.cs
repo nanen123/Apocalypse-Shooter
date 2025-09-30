@@ -7,11 +7,15 @@ public class InGameUIManager : MonoBehaviour
     private InputAction escAction;
     public GameObject escMenu;
 
+    private HealthComponent ph;
+
     public bool isESC;
 
     private void Awake()
     {
         escAction = InputSystem.actions.FindAction("ESC");
+        ph = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthComponent>();
+        ph.onDeadAction += PlayerDied;
     }
 
     void Update()
@@ -35,6 +39,11 @@ public class InGameUIManager : MonoBehaviour
     }
 
     public void GotoTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    private void PlayerDied()
     {
         SceneManager.LoadScene("TitleScene");
     }

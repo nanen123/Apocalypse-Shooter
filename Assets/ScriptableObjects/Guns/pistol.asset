@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65d4d057fd624645ab0e64bc16ec291, type: 3}
   m_Name: pistol
   m_EditorClassIdentifier: 
+  type: 0
   damage: 5
   remainAmmo: 0
   maxAmmo: 15
+  shotDelay: 0.5
   reloadingTime: 2.1

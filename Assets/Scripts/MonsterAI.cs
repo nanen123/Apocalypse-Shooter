@@ -11,7 +11,7 @@ public class MonsterAI : MonoBehaviour
     [Header("공격 설정")]
     public float attackRange = 2.0f;
     public float attackCooldown = 1.5f;
-    public float damage = 10f;
+    public float damage = 1f;
 
     private float nextAttackTime = 0f;
 
@@ -64,6 +64,7 @@ public class MonsterAI : MonoBehaviour
     private void DealDamage()
     {
         IDamagable damagable = target.GetComponent<IDamagable>();
+        Debug.Log("Monster Attack");
 
         if (damagable != null)
         {

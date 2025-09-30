@@ -130,7 +130,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   attackRange: 2
   attackCooldown: 1.5
-  damage: 10
+  damage: 1
 --- !u!195 &3505239728139665915
 NavMeshAgent:
   m_ObjectHideFlags: 0
