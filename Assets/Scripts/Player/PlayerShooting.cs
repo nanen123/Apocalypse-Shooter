@@ -78,9 +78,11 @@ public class PlayerShooting : MonoBehaviour
 
         if (Physics.Raycast(firePos.position, (aimedVector - firePos.position).normalized, out hit, 100f)) // 총구 -> 에임이 가리키는 위치로 발사
         {
-            if (hit.transform.CompareTag("Wall"))
+            IDamagable target = hit.transform.GetComponent<IDamagable>();
+
+            if(target != null)
             {
-                Debug.Log("hit wall");
+                target.OnDamage(currentGun.damage);
             }
         }
     }
