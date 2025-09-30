@@ -1203,6 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraArm: {fileID: 1687795748}
   firePos: {fileID: 551038754}
+  currentGun: {fileID: 11400000, guid: 0e9d136368d10cd43885690425b20875, type: 2}
   line: {fileID: 1687795750}
 --- !u!1 &1316367942
 GameObject:

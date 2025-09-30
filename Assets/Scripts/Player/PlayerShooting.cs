@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
 
     public Transform cameraArm;
     public Transform firePos;
+    public GunStats currentGun;
 
     public LineRenderer line;
     private Vector3 aimedVector;
@@ -21,35 +22,53 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        line.SetPosition(0, cameraArm.position);
+        line.SetPosition(0, firePos.position);
         line.SetPosition(1, cameraArm.position + cameraArm.forward * 100);
 
         if (fireAction.WasPressedThisFrame())
         {
             attackTrigger = true;
-            if (beforeTrigger == false)
-            {
-                Fire();
-            }
         }
 
         if (fireAction.WasReleasedThisFrame())
         {
             attackTrigger = false;
         }
+
+        if (CheckTrigger(currentGun.type))
+        {
+            Fire();
+        }
+
         beforeTrigger = attackTrigger;
+    }
+
+    private bool CheckTrigger(GunStats.GunType type)
+    {
+        if (type == GunStats.GunType.semiAuto) //단발
+        {
+            if (attackTrigger == true && beforeTrigger == false)
+            {
+                return true;
+            }
+            else return false;
+        }
+        else if (type == GunStats.GunType.fullAuto) //연발
+        {
+            if (attackTrigger == true)
+            {
+                return true;
+            }
+            else return false;
+        }
+        else return false;
     }
 
     private void Fire()
     {
-        //Vector3 dir = transform.position + transform.forward * 100;
-        //line.SetPosition(0, transform.position);
-        //line.SetPosition(1, dir);
-
         RaycastHit hit;
         if (Physics.Raycast(cameraArm.position, cameraArm.forward, out hit, 100f)) // 에임이 가리키는 위치 추출
         {
-            Debug.Log("11");
             aimedVector = hit.point;
         }
         else

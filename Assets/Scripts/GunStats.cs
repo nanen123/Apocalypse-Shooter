@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GunStats", menuName = "Scriptable Objects/GunStats")]
 public class GunStats : ScriptableObject
 {
+    public enum GunType {semiAuto, fullAuto };
+
+    public GunType type;
     public float damage; // 데미지
     
     public int remainAmmo; // 현재 탄창에 남아있는 총알
